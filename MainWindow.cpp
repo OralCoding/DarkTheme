@@ -3,16 +3,18 @@
 #include <QStyle>
 #include <QPalette>
 #include <QAction>
+#include <QMessageBox>
 
 #include "MainWindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
+    : QMainWindow(parent) {
     ui.setupUi(this);
 
     QAction* toggleThemeAction = ui.toolBar->addAction("Toggle Theme");
     connect(toggleThemeAction, &QAction::triggered, this, &MainWindow::toggleTheme);
+    ui.pushButton->setText("Show MessageBox");
+    connect(ui.pushButton, &QPushButton::clicked, this, &MainWindow::showMessageBox);
 
     setLightTheme();
 }
@@ -24,6 +26,10 @@ void MainWindow::toggleTheme() {
         setDarkTheme();
     }
     isDarkTheme = !isDarkTheme;
+}
+
+void MainWindow::showMessageBox() {
+    QMessageBox::information(this, "Message Box", "lazy fox jumps over quick brown dog");
 }
 
 void MainWindow::setDarkTheme() {

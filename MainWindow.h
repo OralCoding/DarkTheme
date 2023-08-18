@@ -10,6 +10,7 @@ public:
 
 private slots:
     void toggleTheme();
+    void showMessageBox();
 
 private:
     void setDarkTheme();
