@@ -1,22 +1,21 @@
-#include <QMainWindow>
 #include "ui_MainWindow.h"
+#include <QMainWindow>
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+  MainWindow(QWidget *parent = nullptr);
 
 private slots:
-    void toggleTheme();
-    void showMessageBox();
+  void toggleTheme();
+  void showMessageBox();
 
 private:
-    void setDarkTheme();
-    void setLightTheme();
+  void setDarkTheme();
+  void setLightTheme();
 
 private:
-    Ui::MainWindow ui;
-    bool isDarkTheme = false;
+  Ui::MainWindow ui;
+  bool isDarkTheme = false;
 };
